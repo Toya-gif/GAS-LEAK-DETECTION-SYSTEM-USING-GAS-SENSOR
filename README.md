@@ -10,6 +10,7 @@
   Gas sensor (MQ-2)
 	
 ## Circuit Diagram:
+<img width="961" height="730" alt="image" src="https://github.com/user-attachments/assets/385e495b-9cb1-4dc0-b955-fbf99b295616" />
 
  
 
@@ -57,10 +58,40 @@ Step 7: Save Your Work
 •	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
 
 ## Program:
+int LED = 13;
+int MQ2pin = A0;
 
+void setup()
+{
+     Serial.begin(9600);
+}
+
+void loop()
+{
+      float sensorValue;
+      sensorValue = analogRead(MQ2pin);
+      if(sensorValue >= 250)
+{
+       digitalWrite(LED, HIGH);
+       Serial.print(sensorValue);
+       Serial.println(" | GAS DETECTED");
+       }
+       else
+    {
+       digitalWrite(LED, LOW);
+       Serial.println("Sensor Value: ");
+       Serial.println(sensorValue);
+       }
+    delay(1000);
+}
 ## Output:
 
-   
+https://github.com/user-attachments/assets/f548b62b-20a1-4d53-a30f-abdc4f3fbc46
+
+
 
 ## Result:
+
+The simulation successfully detected variations in gas concentration using the MQ-series gas sensor. The real-time sensor readings were accurately captured and displayed on the serial monitor in parts per million (ppm), confirming the sensor’s ability to respond effectively to changes in the surrounding environment.
+
 
